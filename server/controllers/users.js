@@ -4,6 +4,7 @@ const get_one = async (req, res) => {
 	try {
 		id = req.params.id;
 		const user = await User.findOne({ id: id });
+		console.log(user);
 
 		res.json(user);
 	} catch (error) {

@@ -16,6 +16,7 @@ const get_one = async (req, res) => {
 const get_many = async (req, res) => {
 	try {
 		const orders = await Order.find();
+		console.log(orders);
 
 		res.status(200).json(orders);
 	} catch (error) {
