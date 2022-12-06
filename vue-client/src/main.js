@@ -6,8 +6,9 @@ import store from './store';
 import axios from 'axios';
 
 
-// axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://172.16.222.73:5050/service';
+axios.defaults.withCredentials = true
+// axios.defaults.headers.common['Referrer-Policy'] = 'unsafe-url'
+axios.defaults.baseURL = 'http://193.150.100.254:8050/service';
 
 
 const app = createApp(App)

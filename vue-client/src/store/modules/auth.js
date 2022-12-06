@@ -13,17 +13,17 @@ const getters = {
     StateUser: state => state.user,
 };
 const actions = {
-    // async Register({ dispatch }, form) {
-    //     await axios.post('register', form)
-    //     let UserForm = new FormData()
-    //     UserForm.append('username', form.username)
-    //     UserForm.append('password', form.password)
-    //     await dispatch('LogIn', UserForm)
-    // },
-    // async LogIn({ commit }, User) {
-    //     await axios.post('login', User)
-    //     await commit('setUser', User.get('username'))
-    // },
+    async Register({ dispatch }, form) {
+        await axios.post('register', form)
+        let UserForm = new FormData()
+        UserForm.append('username', form.username)
+        UserForm.append('password', form.password)
+        await dispatch('LogIn', UserForm)
+    },
+    async LogIn({ commit }, User) {
+        await axios.post('login', User)
+        await commit('setUser', User.get('username'))
+    },
     // async CreateOrder({ dispatch }, order) {
     //     await axios.post('order', order)
     //     await dispatch('GetOrders')

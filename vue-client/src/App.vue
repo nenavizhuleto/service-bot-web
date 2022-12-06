@@ -1,6 +1,25 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
+import { mapGetters, mapActions } from "vuex";
 
+export default {
+  data() {
+    return {
+    }
+  },
+  created() {
+
+  },
+  mounted() {
+
+  },
+  computed: {
+    ...mapGetters({ isAuthenticated: "isAuthenticated" })
+  },
+  methods: {
+
+  }
+}
 
 </script>
 
@@ -22,15 +41,20 @@ import { RouterLink, RouterView } from 'vue-router'
             </li>
           </ul>
           <div class="collapse navbar-collapse justify-content-end">
-            <div class="navbar-text">Signed in as: <RouterLink to="/dasdad">Guest</RouterLink>
-            </div>
+            <li v-if="this.isAuthenticated">Signed in as: <RouterLink class="btn btn-primary pl-2 pr-2" to="/profile">
+                Guest
+              </RouterLink>
+            </li>
+            <li v-else>
+              <RouterLink to="/auth" class="btn btn-primary pl-2 pr-2">Login</RouterLink>
+            </li>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
-  <RouterView class=" text-bg-dark" />
+  <RouterView class=" text-bg-dark vh-100" />
 </template>
 
 <style scoped>
