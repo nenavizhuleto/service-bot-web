@@ -16,8 +16,6 @@ const get_one = async (req, res) => {
 const get_many = async (req, res) => {
 	try {
 		const orders = await Order.find();
-		console.log(orders);
-
 		res.status(200).json(orders);
 	} catch (error) {
 		res.json({
@@ -55,12 +53,7 @@ const update_one = async (req, res) => {
 
 	try {
 		const id = req.params.id;
-		console.log(id);
 		const updated_order = await Order.updateOne({ _id: id }, [{ $set: { status: order.status } }]);
-		// await updated_order.save();
-		console.log(order);
-
-		console.log(updated_order);
 		res.status(200).json(updated_order);
 	} catch (error) {
 		res.json({

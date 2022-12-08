@@ -9,15 +9,20 @@ require('dotenv').config()
 const ServiceRouter = require('./routes/service.js');
 const AuthRouter = require('./routes/auth.js');
 
-const PORT = 8050;
+const PORT = process.env.PORT || 8060;
 const MONGODB_URI = 'mongodb://172.16.222.73:8081/service';
-
 
 
 const app = express();
 
 // https://github.com/axios/axios/issues/587#issuecomment-521302097
-app.use(cors({ credentials: true, origin: 'http://193.150.100.254:8070' }));
+app.use(cors({
+	credentials: true, origin: (origin, callback) => {
+		console.log('request from: ', origin);
+		callback(null, origin)
+	}
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
@@ -30,7 +35,7 @@ app.get('/', (req, res) => {
 
 const start_server = () => {
 	app.listen(PORT, () => {
-		console.log('Server started');
+		console.log('Server started', PORT);
 	});
 };
 
