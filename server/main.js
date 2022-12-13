@@ -10,7 +10,7 @@ const ServiceRouter = require('./routes/service.js');
 const AuthRouter = require('./routes/auth.js');
 
 const PORT = process.env.PORT || 8060;
-const MONGODB_URI = 'mongodb://172.16.222.73:8081/service';
+const MONGODB_URI = 'mongodb://193.150.100.254:8081/service';
 
 
 const app = express();

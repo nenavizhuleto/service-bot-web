@@ -15,6 +15,6 @@ export const [orders, { refetch: refetchOrders }] = createResource<Order[]>(() =
 
 
 export const getOrder = (id: string) => orders().find(order => order._id === id)
-
+export const updateOrder = async (updatedOrder: Order) => api.patch(`/orders/${updatedOrder._id}`, updatedOrder).then(({ data }) => console.log(data))
 
 

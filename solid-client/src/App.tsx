@@ -18,7 +18,7 @@ const App: Component = () => {
 					<Route path='/orders/:id' component={OrderDetails} />
 					<Route path='/users' component={UsersTable} />
 					<Route path='/users/:id' component={UserDetails} />
-				</Routes>
+			</Routes>
 			</div>
 		</div>
 	);
