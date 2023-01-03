@@ -27,7 +27,8 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-      username: req.body.username
+      username: req.body.username,
+      role: "manager"
     })
     .exec((err, user) => {
       if (err) {
